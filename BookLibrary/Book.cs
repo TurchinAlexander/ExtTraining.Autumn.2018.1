@@ -14,7 +14,7 @@ namespace BookLibrary
 		public int Pages { get; private set; }
 		public int Price { get; private set; }
 
-		public Book(string title, string author, int year, string publishingHours int edition, int pages, int price)
+		public Book(string title, string author, int year, string publishingHours, int edition, int pages, int price)
 		{
 			Title = title;
 			Author = author;
@@ -43,17 +43,20 @@ namespace BookLibrary
 				case "G":
 					return $"{Author}, {Title}";
 
-				case "GYP":
+				case "GY":
 					return $"{Author}, {Title}, {Year}";
 
 				case "GE":
 					return $"{Author}, {Title}, {Edition}";
 
 				case "F":
-					return $"{Author}, {Title}, {Year}, {PublishingHours}, {Edition}, {Pages}, {Price.ToString("C")}";
+					return $"{Author}, {Title}, {Year}, {PublishingHours}, {Edition}, {Pages}, {Price}$";
 
 				case "T":
 					return $"{Title}";
+
+				case "TY":
+					return $"{Title}, {Year}";
 
 				case "TYP":
 					return $"{Title}, {Year}, {PublishingHours}";
