@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace StringExtension
 {
@@ -22,6 +19,7 @@ namespace StringExtension
 		private static int ConvertToDecimal(string source, int @base)
 		{
 			string sourceBase = source.ToUpper();
+			// The value of the digit is his index in the string;
 			string digits = "0123456789ABCDEF";
 			int result = 0;
 
@@ -29,16 +27,14 @@ namespace StringExtension
 			{
 				int digit = digits.IndexOf(sourceBase[i]);
 
+				// We check if the next interation of increasing digit won't cause his overflow.
+				// It's like int.MaxValue >= result * base + digit
 				if (((int.MaxValue - digit) / @base) >= result)
-				{
-					result = (result * @base + digit);
-				}
-				else
 				{
 					throw new OverflowException(nameof(source));
 				}
 
-				
+				result = (result * @base + digit);
 			}
 
 			return result;
@@ -47,12 +43,14 @@ namespace StringExtension
 		private static void CheckStringForBase(string source, int @base)
 		{
 			string sourceBase = source.ToUpper();
+			// The value of the digit is his index in the string;
 			string digits = "0123456789ABCDEF";
 			bool isValid = true;
 
 			for (int i = 0; (i < sourceBase.Length) && isValid; i++)
 			{
 				int index = digits.IndexOf(sourceBase[i]);
+				// We check if digit is in standard set of digits and not bigger than his base.
 				isValid = ((index >= 0) && (index < @base));
 			}
 
