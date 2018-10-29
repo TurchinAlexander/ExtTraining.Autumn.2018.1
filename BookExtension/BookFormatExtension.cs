@@ -20,13 +20,13 @@ namespace BookExtension
 		{
 			string uformat = format.ToUpper();
 
-			// The condition if an user put not BookFormat's format.
+			// The condition if an user wrote not BookFormat's format.
 			if (uformat != "GI")
 			{
 				return HandleOtherFormats(format, arg);
 			}
 
-			// If an user put our format?, then we casting to Book class.
+			// If an user wrote our format, then we casting to Book class.
 			Book book = (Book)arg;
 
 			// And then just return our format string.
@@ -35,12 +35,12 @@ namespace BookExtension
 
 		public string HandleOtherFormats(string format, object arg)
 		{
-			// If format implement IFormattable interfase, then we call IFormattable.ToString
+			// If format implement IFormattable interfase, then we call IFormattable.ToString().
 			if (arg is IFormattable)
 			{
 				return ((IFormattable)arg).ToString(format, CultureInfo.CurrentCulture);
 			}
-			// Else just call Object or overrriden method ToString.
+			// Else just call standard method ToString().
 			else if (arg != null)
 			{
 				return arg.ToString();

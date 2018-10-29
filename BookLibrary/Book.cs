@@ -6,7 +6,6 @@ namespace BookLibrary
 {
     public class Book : IFormattable
     {
-
 		public string Title { get; private set; }
 		public string Author { get; private set; }
 		public int Year { get; private set; }
@@ -36,8 +35,6 @@ namespace BookLibrary
 			if (string.IsNullOrEmpty(format)) format = "G";
 
 			if (provider == null) provider = CultureInfo.CurrentCulture;
-
-			StringBuilder bookRecord = new StringBuilder();
 
 			switch(format.ToUpperInvariant())
 			{
