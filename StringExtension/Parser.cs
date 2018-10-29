@@ -31,7 +31,7 @@ namespace StringExtension
 				// It's like int.MaxValue >= result * base + digit
 				if (((int.MaxValue - digit) / @base) < result)
 				{
-					throw new OverflowException(nameof(source));
+					throw new ArgumentException(nameof(source));
 				}
 
 				result = (result * @base + digit);

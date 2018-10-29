@@ -43,7 +43,7 @@ namespace BookLibrary.Tests
 		public void Book_FullFormat_ReturnFormat()
 		{
 			Book book = new Book("C# in Depth", "Jon Skeet", 2019, "Manning", 4, 900, 40);
-			string expected = "Jon Skeet, C# in Depth, 2019, Manning, 4, 900, 40$";
+			string expected = "Jon Skeet, C# in Depth, 2019, \"Manning\", 4, 900, 40$";
 
 			string actual = book.ToString("F");
 
@@ -76,7 +76,7 @@ namespace BookLibrary.Tests
 		public void Book_TitleYearPublishingFormat_ReturnFormat()
 		{
 			Book book = new Book("C# in Depth", "Jon Skeet", 2019, "Manning", 4, 900, 40);
-			string expected = "C# in Depth, 2019, Manning";
+			string expected = "C# in Depth, 2019, \"Manning\"";
 
 			string actual = book.ToString("TYP");
 

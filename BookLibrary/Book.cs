@@ -48,7 +48,7 @@ namespace BookLibrary
 					return $"{Author}, {Title}, {Edition}";
 
 				case "F":
-					return $"{Author}, {Title}, {Year}, {PublishingHours}, {Edition}, {Pages}, {Price}$";
+					return $"{Author}, {Title}, {Year}, \"{PublishingHours}\", {Edition}, {Pages}, {Price}$";
 
 				case "T":
 					return $"{Title}";
@@ -57,7 +57,7 @@ namespace BookLibrary
 					return $"{Title}, {Year}";
 
 				case "TYP":
-					return $"{Title}, {Year}, {PublishingHours}";
+					return $"{Title}, {Year}, \"{PublishingHours}\"";
 
 				default:
 					throw new FormatException(String.Format("The {0} format string is not supported.", format));
